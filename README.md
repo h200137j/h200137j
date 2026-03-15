@@ -1,59 +1,148 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<div align="center">
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+<br/>
 
-## About Laravel
+```
+ ██████╗ █████╗ ██╗    ██╗   ██╗██╗███╗   ██╗
+██╔════╝██╔══██╗██║    ██║   ██║██║████╗  ██║
+██║     ███████║██║    ██║   ██║██║██╔██╗ ██║
+██║     ██╔══██║██║    ╚██╗ ██╔╝██║██║╚██╗██║
+╚██████╗██║  ██║███████╗╚████╔╝ ██║██║ ╚████║
+ ╚═════╝╚═╝  ╚═╝╚══════╝ ╚═══╝  ╚═╝╚═╝  ╚═══╝
+```
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+# Calvin Tafadzwa Mashamba
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+**Full-Stack Software Engineer · BT Computer Science (1st Class) · Harare Institute of Technology**
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+<br/>
 
-## Learning Laravel
+[![Portfolio](https://img.shields.io/badge/Portfolio-Live-0ea5e9?style=for-the-badge&logo=vercel&logoColor=white)](https://github.com/h200137j)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/calvin-mashamba/)
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/h200137j)
+[![WhatsApp](https://img.shields.io/badge/WhatsApp-Chat-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/263785180881)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+<br/>
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+> *"Building software that eliminates inefficiency — one system at a time."*
 
-## Laravel Sponsors
+<br/>
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+</div>
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## About This Project
 
-## Contributing
+This repository **is** the portfolio — a single-page application that represents who I am as an engineer. Built with the same stack I use professionally, every interaction, animation, and design decision was intentional.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```
+Laravel  ·  React  ·  Inertia.js  ·  Tailwind CSS  ·  Framer Motion
+```
 
-## Code of Conduct
+<br/>
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Tech Stack
 
-## Security Vulnerabilities
+| Layer | Technology |
+|---|---|
+| Backend | Laravel 12 (PHP 8.2) |
+| Frontend | React 18 via Inertia.js |
+| Styling | Tailwind CSS (dark/light mode) |
+| Animations | Framer Motion |
+| Icons | Lucide React |
+| Database | MySQL / SQLite |
+| Build Tool | Vite |
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+<br/>
 
-## License
+## Features
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- **Interactive particle canvas** — reacts to mouse movement in real time
+- **Custom cursor** — spring-physics dual-layer cursor with hover expansion
+- **Persistent dark/light mode** — saved to `localStorage`, respects system preference
+- **Smooth scroll navigation** — single-page with animated section reveals
+- **Project modals** — `AnimatePresence` powered overlays with full project details
+- **Contact form** — Inertia `useForm`, server-side validation, success animation
+- **Fully responsive** — mobile-first, works on every screen size
+
+<br/>
+
+## Getting Started
+
+```bash
+# Clone the repo
+git clone https://github.com/h200137j/calvin-tafadzwa-mashamba.git
+cd calvin-tafadzwa-mashamba
+
+# Install PHP dependencies
+composer install
+
+# Install JS dependencies
+npm install
+
+# Set up environment
+cp .env.example .env
+php artisan key:generate
+
+# Run migrations
+php artisan migrate
+
+# Start development
+php artisan serve   # Terminal 1
+npm run dev         # Terminal 2
+```
+
+<br/>
+
+---
+
+## My Other Projects
+
+<div align="center">
+
+| Project | Description | Repo |
+|---|---|---|
+| 🔒 **Diligent** | Productivity & task management app | [![Repo](https://img.shields.io/badge/View-Repo-181717?style=flat-square&logo=github)](https://github.com/h200137j/diligent) |
+| ✨ **Skillumina** | Skills & learning platform | [![Repo](https://img.shields.io/badge/View-Repo-181717?style=flat-square&logo=github)](https://github.com/h200137j/skillumina-new) |
+| ✅ **Veritas** | Verification & truth-checking tool | [![Repo](https://img.shields.io/badge/View-Repo-181717?style=flat-square&logo=github)](https://github.com/h200137j/veritas) |
+| 🪙 **Mintikhing** | Fintech / minting application | [![Repo](https://img.shields.io/badge/View-Repo-181717?style=flat-square&logo=github)](https://github.com/h200137j/mintikhing) |
+| 🃏 **MyCards** | Digital card & contact manager | [![Repo](https://img.shields.io/badge/View-Repo-181717?style=flat-square&logo=github)](https://github.com/h200137j/mycards) |
+| 🧹 **Spotless Spaces** | Property / cleaning management system | [![Repo](https://img.shields.io/badge/View-Repo-181717?style=flat-square&logo=github)](https://github.com/h200137j/spotless-spaces) |
+| ⏱️ **Shutdown Timer** | System shutdown scheduler utility | [![Repo](https://img.shields.io/badge/View-Repo-181717?style=flat-square&logo=github)](https://github.com/h200137j/shutdown-timer) |
+
+</div>
+
+<br/>
+
+---
+
+## Awards & Recognition
+
+```
+🏆  HIT Book Prize          —  Best Capstone Design Project (LUMINA)
+🏆  LADS Africa Prize       —  Best Capstone Design Project (LUMINA)
+🎓  First Class Honours     —  BT Computer Science, Harare Institute of Technology
+```
+
+<br/>
+
+---
+
+<div align="center">
+
+**Calvin Tafadzwa Mashamba**
+
+📧 tcmash3@gmail.com &nbsp;·&nbsp; 📱 +263 785 180 881 &nbsp;·&nbsp; 📍 Harare, Zimbabwe
+
+<br/>
+
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/calvin-mashamba/)
+[![GitHub](https://img.shields.io/badge/-GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/h200137j)
+[![WhatsApp](https://img.shields.io/badge/-WhatsApp-25D366?style=flat-square&logo=whatsapp&logoColor=white)](https://wa.me/263785180881)
+
+<br/>
+
+*Built with passion in Zimbabwe 🇿🇼*
+
+</div>
