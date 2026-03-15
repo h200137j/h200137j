@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
-import { useForm } from '@inertiajs/react';
+import axios from 'axios';
 import { Send, CheckCircle, Mail, MapPin, Phone, Linkedin, Github } from 'lucide-react';
 
 function WhatsAppIcon({ size = 16 }) {
@@ -46,21 +46,29 @@ export default function ContactSection() {
     const inView = useInView(ref, { once: true, margin: '-80px' });
     const [sent, setSent] = useState(false);
 
-    const { data, setData, post, processing, errors, reset } = useForm({
-        name: '',
-        email: '',
-        message: '',
-    });
+    const [data, setData] = useState({ name: '', email: '', message: '' });
+    const [processing, setProcessing] = useState(false);
+    const [errors, setErrors] = useState({});
 
-    const submit = (e) => {
+    const submit = async (e) => {
         e.preventDefault();
-        post(route('contact.store'), {
-            onSuccess: () => {
-                reset();
-                setSent(true);
-                setTimeout(() => setSent(false), 5000);
-            },
-        });
+        setProcessing(true);
+        setErrors({});
+
+        try {
+            await axios.post(route('contact.store'), data);
+            setData({ name: '', email: '', message: '' });
+            setSent(true);
+            setTimeout(() => setSent(false), 5000);
+        } catch (err) {
+            if (err.response?.status === 422) {
+                    // flatten Laravel's { field: ['msg', ...] } to { field: 'msg' }
+                    const raw = err.response.data.errors ?? {};
+                    setErrors(Object.fromEntries(Object.entries(raw).map(([k, v]) => [k, Array.isArray(v) ? v[0] : v])));
+                }
+        } finally {
+            setProcessing(false);
+        }
     };
 
     return (
@@ -203,7 +211,7 @@ export default function ContactSection() {
                                         <input
                                             type="text"
                                             value={data.name}
-                                            onChange={(e) => setData('name', e.target.value)}
+                                            onChange={(e) => setData(d => ({ ...d, name: e.target.value }))}
                                             placeholder="Calvin Mashamba"
                                             className={inputClass(!!errors.name)}
                                         />
@@ -213,7 +221,7 @@ export default function ContactSection() {
                                         <input
                                             type="email"
                                             value={data.email}
-                                            onChange={(e) => setData('email', e.target.value)}
+                                            onChange={(e) => setData(d => ({ ...d, email: e.target.value }))}
                                             placeholder="you@example.com"
                                             className={inputClass(!!errors.email)}
                                         />
@@ -223,7 +231,7 @@ export default function ContactSection() {
                                         <textarea
                                             rows={5}
                                             value={data.message}
-                                            onChange={(e) => setData('message', e.target.value)}
+                                            onChange={(e) => setData(d => ({ ...d, message: e.target.value }))}
                                             placeholder="Tell me about your project..."
                                             className={`${inputClass(!!errors.message)} resize-none`}
                                         />
