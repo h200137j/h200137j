@@ -4,9 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\ContactMessage;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class ContactController extends Controller
 {
+    public function index()
+    {
+        return Inertia::render('Dashboard', [
+            'messages' => ContactMessage::latest()->get(),
+        ]);
+    }
+
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -18,5 +26,12 @@ class ContactController extends Controller
         ContactMessage::create($validated);
 
         return back()->with('success', 'Message sent successfully!');
+    }
+
+    public function destroy(ContactMessage $message)
+    {
+        $message->delete();
+
+        return back();
     }
 }

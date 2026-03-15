@@ -143,6 +143,6 @@ npm run dev         # Terminal 2
 
 <br/>
 
-*Built with passion in Zimbabwe 🇿🇼*
+*And in all things i will acknowledge the Lord*
 
 </div>

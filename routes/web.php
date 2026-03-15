@@ -9,3 +9,10 @@ Route::get('/', function () {
 })->name('home');
 
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard',              [ContactController::class, 'index'])->name('dashboard');
+    Route::delete('/messages/{message}',  [ContactController::class, 'destroy'])->name('messages.destroy');
+});
+
+require __DIR__.'/auth.php';
