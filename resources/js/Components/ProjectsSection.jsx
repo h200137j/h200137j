@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
-import { X, ExternalLink, Building2, Database, Trophy, Smartphone, ArrowUpRight } from 'lucide-react';
+import { X, ExternalLink, Building2, Database, Trophy, Smartphone, ArrowUpRight, RefreshCw, Shield } from 'lucide-react';
 
 const projects = [
     {
@@ -59,6 +59,48 @@ const projects = [
             'Comprehensive research paper with mathematical proofs of optimality',
         ],
         description: `LUMINA (Lane Utilization Management and Intelligent Navigation Algorithm) is an optimization algorithm developed as a capstone project at the Harare Institute of Technology. The algorithm intelligently assigns vehicles to lanes based on real-time utilization data, significantly reducing congestion and improving throughput. The project won both the HIT Book Prize and the LADS Africa Prize — the two most prestigious awards for capstone projects at HIT.`,
+    },
+    {
+        id: 5,
+        title: 'Tardis',
+        subtitle: 'MySQL Database Sync Tool',
+        icon: RefreshCw,
+        tags: ['Go', 'Wails', 'React', 'SSH', 'MySQL'],
+        color: 'from-emerald-500 to-green-600',
+        accent: 'emerald',
+        github: 'https://github.com/h200137j/tardis',
+        summary: 'Transfer And Retrieve Database In Seconds — a one-click desktop app for MySQL database workflows on Ubuntu Linux.',
+        highlights: [
+            'Pull from production — SSH, dump, compress, and download in one click',
+            'Push to test server — full prod → local → test pipeline automated end-to-end',
+            'Pull & import local — dumps prod and imports straight into local MySQL',
+            'Import from file — supports .sql and .sql.gz files',
+            'Live progress panel with elapsed timer, MB transferred, and per-step status',
+            'Secure credential storage at ~/.config/dbsync/config.json with 0600 permissions',
+            'Supports SSH password and private key authentication',
+        ],
+        description: `Tardis (Transfer And Retrieve Database In Seconds) is a desktop app for Ubuntu Linux that automates MySQL database workflows in a single click. Built with Wails v2, Go, and React, it handles the full lifecycle of syncing databases between production, test, and local environments — including SSH tunneling, dump compression, SFTP transfer, and import. It also automatically strips MariaDB sandbox mode comments from dumps for clean imports.`,
+    },
+    {
+        id: 6,
+        title: 'GoVPN',
+        subtitle: 'OpenVPN Desktop Client',
+        icon: Shield,
+        tags: ['Go', 'Wails', 'Vanilla JS', 'OpenVPN', 'Linux'],
+        color: 'from-slate-500 to-slate-700',
+        accent: 'slate',
+        github: 'https://github.com/h200137j/VPN',
+        summary: 'A lightweight OpenVPN client for Linux with multiple profiles, live stats, and automatic stale route cleanup.',
+        highlights: [
+            'Multiple VPN profiles — each with their own imported .ovpn config and credentials',
+            'Live connection stats — VPN IP, public IP, cipher, bytes sent/received, connection timer',
+            'System tray support — minimize and keep the VPN running in the background',
+            'Fixes the classic Linux "connected but no traffic" bug with automatic stale tun cleanup',
+            'Graceful disconnect via SIGTERM so OpenVPN cleans up its own routes',
+            'Live color-coded OpenVPN log stream in real time',
+            'Credentials stored with 0600 permissions, never in plain text outside config dir',
+        ],
+        description: `GoVPN is a lightweight OpenVPN client for Linux built with Go and Wails v2. It provides a clean dark UI for managing multiple VPN profiles, each with their own imported .ovpn config and saved credentials. The app solves a common Linux pain point by automatically flushing stale tun interfaces on reconnect — fixing the "connected but no traffic" bug. All system-level operations (running openvpn, cleaning routes) are handled by the Go backend via sudo, while the Vanilla JS + Vite frontend renders in a WebKit2GTK webview.`,
     },
     {
         id: 4,
@@ -159,6 +201,21 @@ function ProjectModal({ project, onClose }) {
                             ))}
                         </ul>
                     </div>
+
+                    {/* GitHub link */}
+                    {project.github && (
+                        <div className="mt-6 pt-6 border-t border-gray-100 dark:border-dark-border">
+                            <a
+                                href={project.github}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={`inline-flex items-center gap-2 text-sm font-semibold bg-gradient-to-r ${project.color} bg-clip-text text-transparent hover:opacity-80 transition-opacity`}
+                            >
+                                <ExternalLink size={14} className="text-gray-500" />
+                                View on GitHub
+                            </a>
+                        </div>
+                    )}
                 </div>
             </motion.div>
         </motion.div>
