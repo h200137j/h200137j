@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Head, useForm } from '@inertiajs/react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Eye, EyeOff, LogIn, Lock, Mail } from 'lucide-react';
-import ParticleCanvas from '@/Components/ParticleCanvas';
+import LaneFlowCanvas from '@/Components/LaneFlowCanvas';
 import CustomCursor from '@/Components/CustomCursor';
 
 export default function Login({ status }) {
@@ -43,7 +43,7 @@ export default function Login({ status }) {
             <CustomCursor />
 
             <div className="min-h-screen relative flex items-center justify-center bg-white dark:bg-dark-bg overflow-hidden">
-                <ParticleCanvas dark={dark} />
+                <LaneFlowCanvas dark={dark} />
 
                 {/* Gradient orbs */}
                 <div className="absolute top-1/4 -left-32 w-96 h-96 bg-brand-500/10 dark:bg-brand-500/8 rounded-full blur-3xl pointer-events-none" />

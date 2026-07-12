@@ -46,11 +46,15 @@ export default function CustomCursor() {
         };
     }, []);
 
+    if (typeof window !== 'undefined' && !window.matchMedia('(pointer: fine)').matches) {
+        return null;
+    }
+
     return (
         <>
             {/* Outer ring */}
             <motion.div
-                className="fixed top-0 left-0 pointer-events-none z-[9999] rounded-full border border-brand-500 mix-blend-difference"
+                className="fixed top-0 left-0 pointer-events-none z-[9999] rounded-full border border-lilac-400 mix-blend-difference"
                 animate={{
                     x: pos.x - (hovered ? 20 : 16),
                     y: pos.y - (hovered ? 20 : 16),
@@ -62,7 +66,7 @@ export default function CustomCursor() {
             />
             {/* Inner dot */}
             <motion.div
-                className="fixed top-0 left-0 pointer-events-none z-[9999] rounded-full bg-brand-500"
+                className="fixed top-0 left-0 pointer-events-none z-[9999] rounded-full bg-sun-400"
                 animate={{
                     x: pos.x - 3,
                     y: pos.y - 3,

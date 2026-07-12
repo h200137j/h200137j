@@ -28,6 +28,14 @@ export default function Portfolio() {
         }
     }, [dark]);
 
+    // Deep-link support: /#projects lands on the section directly
+    useEffect(() => {
+        const hash = window.location.hash;
+        if (hash) {
+            document.querySelector(hash)?.scrollIntoView({ behavior: 'instant', block: 'start' });
+        }
+    }, []);
+
     const toggleDark = () => setDark((d) => !d);
 
     return (

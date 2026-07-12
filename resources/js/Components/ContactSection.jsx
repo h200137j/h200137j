@@ -14,7 +14,7 @@ function WhatsAppIcon({ size = 16 }) {
 function InputField({ label, error, children }) {
     return (
         <div>
-            <label className="block text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide mb-2">
+            <label className="block font-mono text-[11px] tracking-[0.2em] text-ink/60 dark:text-paper/60 uppercase mb-2">
                 {label}
             </label>
             {children}
@@ -35,10 +35,10 @@ function InputField({ label, error, children }) {
 }
 
 const inputClass = (hasError) =>
-    `w-full px-4 py-3 rounded-xl text-sm bg-gray-50 dark:bg-dark-surface border transition-all duration-200 outline-none text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:ring-2 focus:ring-brand-500/30 ${
+    `w-full px-4 py-3 rounded text-sm bg-paper dark:bg-night-surface border transition-all duration-200 outline-none text-ink dark:text-paper placeholder-ink/30 dark:placeholder-paper/30 focus:ring-2 focus:ring-sun-500/30 ${
         hasError
             ? 'border-red-400 dark:border-red-500 focus:border-red-400'
-            : 'border-gray-200 dark:border-dark-border focus:border-brand-500 dark:focus:border-brand-400'
+            : 'border-paper-line dark:border-night-line focus:border-sun-500 dark:focus:border-sun-400'
     }`;
 
 export default function ContactSection() {
@@ -62,27 +62,25 @@ export default function ContactSection() {
             setTimeout(() => setSent(false), 5000);
         } catch (err) {
             if (err.response?.status === 422) {
-                    // flatten Laravel's { field: ['msg', ...] } to { field: 'msg' }
-                    const raw = err.response.data.errors ?? {};
-                    setErrors(Object.fromEntries(Object.entries(raw).map(([k, v]) => [k, Array.isArray(v) ? v[0] : v])));
-                }
+                // flatten Laravel's { field: ['msg', ...] } to { field: 'msg' }
+                const raw = err.response.data.errors ?? {};
+                setErrors(Object.fromEntries(Object.entries(raw).map(([k, v]) => [k, Array.isArray(v) ? v[0] : v])));
+            }
         } finally {
             setProcessing(false);
         }
     };
 
     return (
-        <section id="contact" className="section-padding bg-gray-50/50 dark:bg-dark-surface/30 relative overflow-hidden">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-transparent to-brand-500/30 pointer-events-none" />
-
+        <section id="contact" className="section-padding bg-paper dark:bg-night-surface/40 relative overflow-hidden">
             <div className="max-w-7xl mx-auto" ref={ref}>
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={inView ? { opacity: 1, y: 0 } : {}}
-                    className="flex items-center gap-3 mb-4"
+                    className="flex items-center gap-4 mb-6"
                 >
-                    <div className="w-8 h-px bg-brand-500" />
-                    <span className="text-xs font-semibold text-brand-500 dark:text-brand-400 tracking-widest uppercase">Contact</span>
+                    <span className="record-code">03 · Contact</span>
+                    <div className="flex-1 max-w-24 chevron-strip" />
                 </motion.div>
 
                 <div className="grid lg:grid-cols-2 gap-16 items-start">
@@ -92,17 +90,17 @@ export default function ContactSection() {
                             initial={{ opacity: 0, y: 30 }}
                             animate={inView ? { opacity: 1, y: 0 } : {}}
                             transition={{ duration: 0.6, delay: 0.1 }}
-                            className="text-4xl md:text-5xl font-black text-gray-900 dark:text-white mb-5 leading-tight"
+                            className="font-display text-4xl md:text-5xl font-extrabold text-ink dark:text-paper mb-5 leading-[1.05]"
                         >
-                            Let's build something{' '}
-                            <span className="text-gradient">great together.</span>
+                            Open a{' '}
+                            <span className="text-sun-600 dark:text-sun-400">line.</span>
                         </motion.h2>
 
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
                             animate={inView ? { opacity: 1, y: 0 } : {}}
                             transition={{ duration: 0.5, delay: 0.2 }}
-                            className="text-gray-500 dark:text-gray-400 leading-relaxed mb-10"
+                            className="text-ink/60 dark:text-paper/60 leading-relaxed mb-10"
                         >
                             Whether you have a project in mind, want to discuss an opportunity, or just want to say hi —
                             my inbox is always open.
@@ -115,18 +113,18 @@ export default function ContactSection() {
                             className="space-y-4"
                         >
                             {[
-                                { icon: Mail,    label: 'Email',    value: 'tcmash3@gmail.com' },
-                                { icon: Phone,   label: 'Mobile',   value: '+263 785 180 881' },
-                                { icon: Phone,   label: 'Mobile',   value: '+263 778 299 196' },
-                                { icon: MapPin,  label: 'Location', value: 'Harare, Zimbabwe' },
+                                { icon: Mail,   label: 'Email',    value: 'tcmash3@gmail.com' },
+                                { icon: Phone,  label: 'Mobile',   value: '+263 785 180 881' },
+                                { icon: Phone,  label: 'Mobile 2', value: '+263 778 299 196' },
+                                { icon: MapPin, label: 'Location', value: 'Harare, Zimbabwe' },
                             ].map(({ icon: Icon, label, value }) => (
                                 <div key={label} className="flex items-center gap-4">
-                                    <div className="w-10 h-10 rounded-xl bg-brand-500/10 dark:bg-brand-500/15 flex items-center justify-center flex-shrink-0">
-                                        <Icon size={16} className="text-brand-500 dark:text-brand-400" />
+                                    <div className="w-10 h-10 rounded bg-lilac-500/10 dark:bg-lilac-500/15 flex items-center justify-center flex-shrink-0">
+                                        <Icon size={16} className="text-lilac-700 dark:text-lilac-400" />
                                     </div>
                                     <div>
-                                        <p className="text-xs text-gray-400 dark:text-gray-600">{label}</p>
-                                        <p className="text-sm font-medium text-gray-700 dark:text-gray-300">{value}</p>
+                                        <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-ink/40 dark:text-paper/40">{label}</p>
+                                        <p className="text-sm font-medium text-ink/80 dark:text-paper/80">{value}</p>
                                     </div>
                                 </div>
                             ))}
@@ -139,16 +137,16 @@ export default function ContactSection() {
                             className="flex gap-3 mt-8"
                         >
                             {[
-                                { icon: Github,      href: 'https://github.com/h200137j',                        label: 'GitHub' },
-                                { icon: Linkedin,    href: 'https://www.linkedin.com/in/calvin-mashamba/',       label: 'LinkedIn' },
-                                { icon: WhatsAppIcon, href: 'https://wa.me/263785180881',                        label: 'WhatsApp' },
+                                { icon: Github,       href: 'https://github.com/h200137j',                  label: 'GitHub' },
+                                { icon: Linkedin,     href: 'https://www.linkedin.com/in/calvin-mashamba/', label: 'LinkedIn' },
+                                { icon: WhatsAppIcon, href: 'https://wa.me/263785180881',                   label: 'WhatsApp' },
                             ].map(({ icon: Icon, href, label }) => (
                                 <a
                                     key={label}
                                     href={href}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="w-10 h-10 rounded-xl glass-card flex items-center justify-center hover:border-brand-500 dark:hover:border-brand-400 hover:text-brand-500 dark:hover:text-brand-400 transition-all duration-200 hover:-translate-y-0.5"
+                                    className="w-10 h-10 rounded ledger-card flex items-center justify-center text-ink/70 dark:text-paper/70 hover:border-sun-500 dark:hover:border-sun-400 hover:text-sun-600 dark:hover:text-sun-400 transition-all duration-200 hover:-translate-y-0.5"
                                     aria-label={label}
                                 >
                                     <Icon size={16} />
@@ -171,29 +169,29 @@ export default function ContactSection() {
                                     animate={{ opacity: 1, scale: 1 }}
                                     exit={{ opacity: 0, scale: 0.9 }}
                                     transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                                    className="glass-card p-10 flex flex-col items-center justify-center text-center min-h-[360px]"
+                                    className="ledger-card p-10 flex flex-col items-center justify-center text-center min-h-[360px]"
                                 >
                                     <motion.div
                                         initial={{ scale: 0, rotate: -180 }}
                                         animate={{ scale: 1, rotate: 0 }}
                                         transition={{ delay: 0.1, type: 'spring', stiffness: 200, damping: 15 }}
-                                        className="w-16 h-16 rounded-full bg-green-500/10 dark:bg-green-500/15 flex items-center justify-center mb-5"
+                                        className="w-16 h-16 rounded-full bg-sun-400/15 flex items-center justify-center mb-5"
                                     >
-                                        <CheckCircle size={32} className="text-green-500" />
+                                        <CheckCircle size={32} className="text-sun-500 dark:text-sun-400" />
                                     </motion.div>
                                     <motion.h3
                                         initial={{ opacity: 0, y: 10 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{ delay: 0.25 }}
-                                        className="text-xl font-bold text-gray-900 dark:text-white mb-2"
+                                        className="font-display text-xl font-bold text-ink dark:text-paper mb-2"
                                     >
-                                        Message sent!
+                                        Message sent
                                     </motion.h3>
                                     <motion.p
                                         initial={{ opacity: 0, y: 10 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{ delay: 0.35 }}
-                                        className="text-gray-500 dark:text-gray-400 text-sm"
+                                        className="text-ink/60 dark:text-paper/60 text-sm"
                                     >
                                         Thanks for reaching out. I'll get back to you soon.
                                     </motion.p>
@@ -205,9 +203,9 @@ export default function ContactSection() {
                                     animate={{ opacity: 1 }}
                                     exit={{ opacity: 0 }}
                                     onSubmit={submit}
-                                    className="glass-card p-6 md:p-8 space-y-5"
+                                    className="ledger-card p-6 md:p-8 space-y-5"
                                 >
-                                    <InputField label="Your Name" error={errors.name}>
+                                    <InputField label="Your name" error={errors.name}>
                                         <input
                                             type="text"
                                             value={data.name}
@@ -217,12 +215,12 @@ export default function ContactSection() {
                                         />
                                     </InputField>
 
-                                    <InputField label="Email Address" error={errors.email}>
+                                    <InputField label="Email address" error={errors.email}>
                                         <input
                                             type="email"
                                             value={data.email}
                                             onChange={(e) => setData(d => ({ ...d, email: e.target.value }))}
-                                            placeholder="you@example.com"
+                                            placeholder="tcmash3@gmail.com"
                                             className={inputClass(!!errors.email)}
                                         />
                                     </InputField>
@@ -242,20 +240,20 @@ export default function ContactSection() {
                                         disabled={processing}
                                         whileHover={{ scale: 1.01 }}
                                         whileTap={{ scale: 0.98 }}
-                                        className="w-full py-3.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-semibold text-sm flex items-center justify-center gap-2.5 transition-all duration-200 shadow-lg shadow-brand-500/25 hover:shadow-brand-500/40 disabled:opacity-60 disabled:cursor-not-allowed"
+                                        className="w-full py-3.5 rounded bg-sun-500 hover:bg-sun-400 text-ink font-semibold text-sm flex items-center justify-center gap-2.5 transition-all duration-200 shadow-lg shadow-sun-500/20 disabled:opacity-60 disabled:cursor-not-allowed"
                                     >
                                         {processing ? (
                                             <>
                                                 <motion.div
                                                     animate={{ rotate: 360 }}
                                                     transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
-                                                    className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full"
+                                                    className="w-4 h-4 border-2 border-ink/30 border-t-ink rounded-full"
                                                 />
                                                 Sending...
                                             </>
                                         ) : (
                                             <>
-                                                Send Message
+                                                Send message
                                                 <Send size={14} />
                                             </>
                                         )}
