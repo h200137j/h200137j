@@ -176,7 +176,9 @@ A small, warm Linux app that powers your machine down on schedule, with a hand-p
 <img height="165" src="https://github-readme-stats.vercel.app/api?username=h200137j&show_icons=true&include_all_commits=true&count_private=true&hide_border=true&theme=tokyonight" alt="GitHub stats" />
 <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=h200137j&layout=compact&langs_count=8&hide_border=true&theme=tokyonight" alt="Top languages" />
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=h200137j&hide_border=true&theme=tokyo-night" alt="Contribution graph" width="95%" />
+<br/><br/>
+
+<img src="https://ghchart.rshah.org/0EA5E9/h200137j" alt="Contribution graph" width="95%" />
 
 </div>
 
