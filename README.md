@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=26&duration=3200&pause=900&color=0EA5E9&center=true&vCenter=true&width=640&lines=Hi%2C+I'm+Calvin+Mashamba+%F0%9F%91%8B;Full-Stack+Software+Engineer;ERPs+%C2%B7+POS+%C2%B7+Mobile+%C2%B7+Linux+Desktop+Tools;Building+software+that+kills+inefficiency" alt="Typing intro" />
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=52&height=90&duration=3200&pause=900&color=0EA5E9&center=true&vCenter=true&width=1300&lines=Hi%2C+I'm+Calvin+Mashamba+%F0%9F%91%8B;Full-Stack+Software+Engineer;ERPs+%C2%B7+POS+%C2%B7+Mobile+%C2%B7+Linux+Desktop+Tools;Building+software+that+kills+inefficiency" alt="Typing intro" />
 
 **Full-Stack Software Engineer · BT Computer Science (1st Class Honours) · Harare, Zimbabwe 🇿🇼**
 
